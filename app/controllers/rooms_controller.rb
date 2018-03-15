@@ -9,6 +9,14 @@ class RoomsController < ApplicationController
     @room = Room.new
   end
   def create
+    binding.pry
+    @room = Room.new(room_params)
+    @room.create_user_id = current_user.id
+    if @room.save
+      redirect_to rooms_path
+    else
+      render new_room_path
+    end
 
   end
   def edit
@@ -22,7 +30,7 @@ class RoomsController < ApplicationController
   end
 
   private
-    def params_room
-      params.require(:rooms).permit(:name, :description, :password, :created_user_id)
+    def room_params
+      params.require(:room).permit(:name, :description, :password)
     end
 end
