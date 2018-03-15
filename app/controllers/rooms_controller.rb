@@ -6,13 +6,13 @@ class RoomsController < ApplicationController
 
   end
   def new
-
+    @room = Room.new
   end
   def create
 
   end
   def edit
-
+    @room = Room.find(params[:id])
   end
   def update
 
