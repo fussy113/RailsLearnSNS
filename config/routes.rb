@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     post 'users/sign_up/complete' => 'users/registrations#complete'
   end
 
-  root to: 'home#index'
+  resource :room
+
+  root to: 'room#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
