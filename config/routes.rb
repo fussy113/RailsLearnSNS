@@ -13,14 +13,15 @@ Rails.application.routes.draw do
 
   scope '/rooms' do
     get '/' => 'rooms#index'
-    get '/:id' => 'rooms#show'
     get '/new' => 'rooms#new'
+    get '/:id' => 'rooms#show'
     post '/' => 'rooms#create'
     get '/:id/edit' => 'rooms#edit'
     put '/:id' => 'rooms#update'
     delete '/:id' => 'rooms#destroy'
     post '/:id/confirm' => 'rooms#confirm'
   end
+
 
   root to: 'rooms#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
