@@ -27,12 +27,12 @@ class RoomsController < ApplicationController
   def update
     @room = Room.find_by_id(params[:id])
     @room.update_attributes(room_params)
-    redirect_to '/rooms/:id' , :id => @room.id
+    redirect_to "/rooms/#{params[:id]}"
   end
 
   def destroy
     @room = Room.find_by_id(params[:id]).delete
-    redirect_to '/rooms/'
+    redirect_to root_path
   end
 
 
