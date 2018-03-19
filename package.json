@@ -1,10 +1,11 @@
- {
+{
   "name": "myblog",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^3.2.0",
     "coffeescript": "1.12.7",
     "jquery": "^3.3.1",
+    "rails-ujs": "^5.1.5",
     "vue": "^2.5.13",
     "vue-loader": "^13.6.1",
     "vue-template-compiler": "^2.5.13"
