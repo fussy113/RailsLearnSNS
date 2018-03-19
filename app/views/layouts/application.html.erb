@@ -3,12 +3,13 @@
   <head>
     <title>Myblog</title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   </head>
 
-  <body class="mdl-demo mdl-base">
+  <body data-controller="<%= controller.controller_name %>" data-action="<%= controller.action_name %>" class="mdl-demo mdl-base">
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
