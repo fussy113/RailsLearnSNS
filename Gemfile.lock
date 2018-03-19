@@ -186,7 +186,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap-sass (~> 3.3.6)
   byebug
   capybara (~> 2.13)
   devise
