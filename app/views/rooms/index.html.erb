@@ -1,18 +1,17 @@
-
-  <div class="col-12">
-
-    <div class="btn btn-default">
-      <%= link_to 'チャット部屋を新規作成する!!', :action => 'new' %>
-    </div>
-
-    <% @rooms.each do |room|  %>
-      <div class="col-8">
-        <%= link_to room.name , :action => 'show' , :id => room.id %>
-      </div>
-      <% if room.create_user_id === current_user.id %>
-        <div class="col-4">
-          <%= link_to '編集' , :action => 'edit' , :id => room.id  %>
-        </div>
-      <% end %>
-    <% end %>
+<div class="mdl-list demp-list-action">
+  <div class="mdl-list__item">
+    <%= link_to 'チャット部屋を新規作成する!!', :action => 'new' , :class => 'mdl-list__item-primary-content' %>
   </div>
+  <% @rooms.each do |room|  %>
+    <div class="mdl-list__item">
+      <span class="mdl-list__item-secondary-content">
+        <%= link_to room.name , :action => 'show' , :id => room.id , :class => 'mdl-list__item-primary-action' %>
+      </span>
+      <% if room.create_user_id === current_user.id %>
+        <span class="mdl-list__item-secondary-content">
+          <%= link_to '編集' , :action => 'edit' , :id => room.id , :class => 'mdl-list__item-secondary-action' %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
