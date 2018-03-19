@@ -1,0 +1,13 @@
+<div class="mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Create Chat Room</h2>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <%= form_for @room, :url => {:action => 'create' } do |f| %>
+
+      <%= render :partial => 'form' , :locals => {:f => f} %>
+
+      <%= f.submit '作成', :class => 'mdl-button mdl-js-button mdl-button--raised mdl-button--colored' %>
+    <% end %>
+  </div>
+</div>

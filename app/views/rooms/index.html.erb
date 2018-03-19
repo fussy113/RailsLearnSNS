@@ -1,0 +1,17 @@
+<div class="mdl-list">
+  <div class="mdl-list__item">
+    <%= link_to 'チャット部屋を新規作成する!!', "/rooms/new" , class: "mdl-list__item-primary-content" %>
+  </div>
+  <% @rooms.each do |room|  %>
+    <div class="mdl-list__item">
+      <span class="mdl-list__item-secondary-content">
+        <%= link_to room.name , "/rooms/#{room.id}" , class: "mdl-list__item-primary-action" %>
+      </span>
+      <% if room.create_user_id === current_user.id %>
+        <span class="mdl-list__item-secondary-content">
+          <%= link_to '編集' , "/rooms/#{room.id}/edit" , class: "mdl-list__item-secondary-action" %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
+</div>
