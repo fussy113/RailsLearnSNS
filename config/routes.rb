@@ -14,11 +14,12 @@ Rails.application.routes.draw do
   scope '/rooms' do
     get '/' => 'rooms#index'
     get '/new' => 'rooms#new'
+    delete '/:id' => 'rooms#destroy'
     patch '/:id' => 'rooms#update'
     post '/' => 'rooms#create'
     get '/:id/edit' => 'rooms#edit'
-    delete '/:id' => 'rooms#destroy'
-    post '/:id/confirm' => 'rooms#confirm'
+    get '/:id/confirm' => 'rooms#confirm'
+    post '/:id/confirm' => 'rooms#checkin'
     get '/:id' => 'rooms#show'
   end
 
