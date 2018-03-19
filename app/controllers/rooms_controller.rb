@@ -1,10 +1,17 @@
 class RoomsController < ApplicationController
+  @@checked_room = nil
+
   def index
     @rooms = Room.all
   end
 
   def show
     @room = Room.find_by_id(params[:id])
+    if(@room.password != "" && @@checked_room!=@room.id)
+      render "confirm"
+      return
+    end
+    render "show"
   end
 
   def new
@@ -37,7 +44,16 @@ class RoomsController < ApplicationController
 
 
   def confirm
+    @@checked_room = nil
     @room = Room.find_by_id(params[:id])
+  end
+
+  def checkin
+    @room = Room.find_by_id(params[:id])
+    password=params[:password]
+    return redirect_to url_for(action: 'confirm'), flash: { alert: "パスワードが間違っています。" } if password != @room.password
+    @@checked_room = @room.id
+    redirect_to action: "show"
   end
 
   private
