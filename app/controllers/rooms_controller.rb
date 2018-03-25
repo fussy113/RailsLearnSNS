@@ -11,6 +11,7 @@ class RoomsController < ApplicationController
       render "confirm"
       return
     end
+    @logs = @room.textlogs
     render "show"
   end
 
