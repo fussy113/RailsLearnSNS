@@ -1,12 +1,13 @@
 <h1><%= @room.name %></h1>
-<div id="logs", data-room_id="<%= @room.id %>">
+<div>
+  <ul id="logs", data-room_id="<%= @room.id %>">
   <% @logs.each do |log| %>
-    <div>
-      <%= log.created_at %>
-      <%= log.user.name %>
-      <%= log.content %>
-    </div>
+    <li>
+      <span class="name"><%= log.user.name %> </span>
+      <span class="content"> <%= log.content %> </span>
+    </li>
   <% end %>
+  </ul>
 </div>
 
 <form>
