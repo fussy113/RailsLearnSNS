@@ -10,6 +10,6 @@ class ChatChannel < ApplicationCable::Channel
 
   def speak(data)
     Textlog.create(content: data['message'], user_id: current_user.id ,room_id: params['room_id'])
-    ActionCable.server.broadcast "#{params['channel']}_#{params['room_id']}" , message: data['message']
+    ActionCable.server.broadcast "#{params['channel']}_#{params['room_id']}" , {name: current_user.name ,message: data['message']}
   end
 end
