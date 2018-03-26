@@ -1,6 +1,7 @@
 class ChatChannel < ApplicationCable::Channel
   def subscribed
     stream_from "#{params['channel']}_#{params['room_id']}"
+    stream_for current_user
   end
 
   def unsubscribed
@@ -8,7 +9,7 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def speak(data)
+    Textlog.create(content: data['message'], user_id: current_user.id ,room_id: params['room_id'])
     ActionCable.server.broadcast "#{params['channel']}_#{params['room_id']}" , message: data['message']
-    # Textlog.create(content: data['message'], sent_user: current_user, room] Room.find(params['room_id']))
   end
 end
