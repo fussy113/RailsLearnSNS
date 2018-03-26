@@ -1,1 +1,16 @@
 <h1><%= @room.name %></h1>
+<div>
+  <ul id="logs", data-room_id="<%= @room.id %>">
+  <% @logs.each do |log| %>
+    <li>
+      <span class="name"><%= log.user.name %> </span>
+      <span class="content"> <%= log.content %> </span>
+    </li>
+  <% end %>
+  </ul>
+</div>
+
+<form>
+  <label>Say something:</label><br>
+  <input type="text" data-behavior="room_speaker">
+</form>
