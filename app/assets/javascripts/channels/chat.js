@@ -13,7 +13,7 @@ document.addEventListener("turbolinks:load", function() {
             },
 
             received: function(data) {
-                logs.append(data['message']);
+                createtextlog(data);
             },
 
             speak: function(message) {
@@ -25,5 +25,29 @@ document.addEventListener("turbolinks:load", function() {
         });
 
     }
-})
+
+});
+
+
+document.addEventListener('keypress',function (event) {
+    if (event.keyCode === 13) {
+        App.chat.speak(event.target.value);
+        event.target.value = '';
+        return event.preventDefault();
+    }
+});
+
+function createtextlog(data) {
+    var logs = document.getElementById("logs");
+    var li = document.createElement('li');
+    var name=document.createElement('span');
+    name.classList.add('name');
+    name.appendChild(document.createTextNode(data['name']));
+    var content=document.createElement('span');
+    content.classList.add('content');
+    content.appendChild(document.createTextNode(data['message']));
+    li.appendChild(name);
+    li.appendChild(content);
+    logs.appendChild(li);
+}
 
