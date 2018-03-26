@@ -30,7 +30,14 @@ gem 'turbolinks', '~> 5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
+# デザイン
 gem 'material_design_lite-sass'
+# 画像アップロード
+gem 'carrierwave'
+# AWS S3連携用
+gem 'fog-aws'
+# 画像処理用(例: リサイズ) -> imagemagick@6をインストールする必要
+# gem 'rmagick', '~> 2.16.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
