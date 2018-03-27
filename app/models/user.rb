@@ -5,5 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :rooms
   has_many :textlogs
-  has_many :imagelogs
 end
