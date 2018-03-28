@@ -14,7 +14,7 @@ document.addEventListener("turbolinks:load", function() {
         },
       received: function(data) {
         console.log('received');
-        createtextlog(data);
+        createTextlog(data);
         var content = document.getElementById('content');
         content.value = '';
         var image = document.getElementById('image');
@@ -24,7 +24,7 @@ document.addEventListener("turbolinks:load", function() {
     }
 });
 
-function createtextlog(data) {
+function createTextlog(data) {
   var logs = document.getElementById("logs");
   var li = document.createElement('li');
   var name=document.createElement('span');
@@ -35,14 +35,18 @@ function createtextlog(data) {
   content.appendChild(document.createTextNode(data['message']));
   li.appendChild(name);
   li.appendChild(content);
-  //画像表示
-  var image=document.createElement('span');
-  image.classList.add('image');
-  var url=data['image'];
-  var img = document.createElement('img');
-  img.src = url;
-  image.appendChild(img);
-  li.appendChild(image);
   logs.appendChild(li);
+  //imageが渡されていたら
+  if(data['image']){
+    //画像表示
+    var image=document.createElement('span');
+    image.classList.add('image');
+    var url=data['image'];
+    var img = document.createElement('img');
+    img.src = url;
+    image.appendChild(img);
+    li.appendChild(image);
+  }
+
 }
 
