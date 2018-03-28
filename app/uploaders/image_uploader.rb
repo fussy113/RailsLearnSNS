@@ -40,6 +40,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+  include CarrierWave::RMagick
+
+  # 画像を100x100にリサイズする。
+  process :resize_to_fill => [150, 150]
+
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process resize_to_fit: [50, 50]
