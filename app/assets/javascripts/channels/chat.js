@@ -44,7 +44,5 @@ function createtextlog(data) {
   image.appendChild(img);
   li.appendChild(image);
   logs.appendChild(li);
-  var imgPreloader=new Image();
-  imgPreloader.src=url;
 }
 
