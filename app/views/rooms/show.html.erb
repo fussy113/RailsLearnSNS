@@ -10,7 +10,17 @@
   </ul>
 </div>
 
+<%= form_for @textlog, :url => {:controller => :textlogs ,:action => :create} , data: { remote: true,behavior: 'room_speaker' } do |f| %>
+  <%= f.text_area :content , :id => 'content' %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+<!--
 <form>
   <label>Say something:</label><br>
   <input type="text" data-behavior="room_speaker">
 </form>
+>
