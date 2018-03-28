@@ -114,4 +114,5 @@ typings/
 # webpackerはjsを書き換えて立ち上げなおすたびにapp/public/packにwebpackのentryを吐き出す
 public/packs
 
-
+public/uploads/imagelog
+public/uploads/tmp

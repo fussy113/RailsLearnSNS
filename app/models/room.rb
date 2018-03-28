@@ -1,5 +1,4 @@
 class Room < ApplicationRecord
-	belongs_to :user ,class_name: "User"
+	belongs_to :user ,class_name: "User" ,optional: true
 	has_many :textlogs ,dependent: :destroy
-	has_many :imagelogs ,dependent: :destroy
 end

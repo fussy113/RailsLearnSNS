@@ -1,0 +1,2 @@
+module TextlogsHelper
+end

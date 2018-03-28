@@ -21,7 +21,11 @@ Rails.application.routes.draw do
     get '/:id/confirm' => 'rooms#confirm'
     post '/:id/confirm' => 'rooms#checkin'
     get '/:id' => 'rooms#show'
+    scope '/textlogs' do
+      post '/' => 'textlogs#create'
+    end
   end
+
 
 
   root to: 'rooms#index'
