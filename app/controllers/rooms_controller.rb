@@ -12,6 +12,7 @@ class RoomsController < ApplicationController
       return
     end
     @logs = @room.textlogs
+    @textlog = Textlog.new
     render "show"
   end
 
