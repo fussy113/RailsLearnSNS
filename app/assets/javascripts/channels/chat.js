@@ -17,6 +17,8 @@ document.addEventListener("turbolinks:load", function() {
         createtextlog(data);
         var content = document.getElementById('content');
         content.value = '';
+        var image = document.getElementById('image');
+        image.value = '';
         },
     });
     }
