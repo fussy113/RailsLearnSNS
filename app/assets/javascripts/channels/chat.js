@@ -15,6 +15,8 @@ document.addEventListener("turbolinks:load", function() {
       received: function(data) {
         console.log('received');
         createtextlog(data);
+        var content = document.getElementById('content');
+        content.value = '';
         },
     });
     }
