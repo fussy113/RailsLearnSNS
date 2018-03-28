@@ -37,7 +37,7 @@ gem 'carrierwave'
 # AWS S3連携用
 gem 'fog-aws'
 # 画像処理用(例: リサイズ) -> imagemagick@6をインストールする必要
-# gem 'rmagick', '~> 2.16.0'
+gem 'rmagick', '~> 2.16.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
