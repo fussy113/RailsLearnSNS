@@ -10,6 +10,6 @@ class TextlogsController < ApplicationController
 
   private
     def textlog_params
-      params.require(:textlog).permit(:content,:user_id,:room_id)
+      params.require(:textlog).permit(:content,:user_id,:room_id,imagelog_attributes: [:image])
     end
 end

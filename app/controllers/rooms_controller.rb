@@ -13,6 +13,7 @@ class RoomsController < ApplicationController
     end
     @logs = @room.textlogs
     @textlog = Textlog.new
+    @textlog.build_imagelog
     render "show"
   end
 
