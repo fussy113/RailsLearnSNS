@@ -5,6 +5,9 @@
     <li>
       <span class="name"><%= log.user.name %> </span>
       <span class="content"> <%= log.content %> </span>
+      <% if !log.imagelog.nil? %>
+        <span class="image"> <%= image_tag log.imagelog.image.to_s %> </span>
+      <% end %>
     </li>
   <% end %>
   </ul>
