@@ -3,7 +3,7 @@ class TextlogsController < ApplicationController
     @textlog = Textlog.new(textlog_params)
     if @textlog.content != ''
       if(@textlog.save!)
-        ChatChannel.broadcast_to "#{@textlog.room_id}" , {name: current_user.name ,message: @textlog.content}
+        ChatChannel.broadcast_to "#{@textlog.room_id}" , {name: current_user.name ,message: @textlog.content , image: @textlog.imagelog.image.to_s}
       end
     end
   end
