@@ -1,0 +1,13 @@
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  <%= f.text_field :name , :class => 'mdl-textfield__input' %>
+  <label class="mdl-textfield__label">*ルーム名</label>
+</div>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  <%= f.text_field :description , :class => 'mdl-textfield__input' %>
+  <label class="mdl-textfield__label">*概要</label>
+</div>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  <%= f.text_field :password , :class => 'mdl-textfield__input' %>
+  <label class="mdl-textfield__label">パスワード</label>
+</div>
+<%= f.hidden_field :create_user_id , :value => current_user.id %>

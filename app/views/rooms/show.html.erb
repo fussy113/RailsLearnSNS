@@ -1,0 +1,25 @@
+<h1><%= @room.name %></h1>
+<div>
+  <ul id="logs", data-room_id="<%= @room.id %>">
+  <% @logs.each do |log| %>
+    <li>
+      <span class="name"><%= log.user.name %> </span>
+      <span class="content"> <%= log.content %> </span>
+      <% if !log.imagelog.nil? %>
+        <span class="image"> <%= image_tag log.imagelog.image.to_s %> </span>
+      <% end %>
+    </li>
+  <% end %>
+  </ul>
+</div>
+
+<%= form_for @textlog, :url => {:controller => :textlogs ,:action => :create} , remote: true do |f| %>
+  <%= f.fields_for :imagelog do |af| %>
+    <div><%= af.file_field :image , :id => 'image'%></div>
+  <% end %>
+  <div><%= f.text_field :content , :id => 'content' %></div>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :room_id, value: @room.id %>
+  <br>
+  <%= f.submit "send"%>
+<% end %>

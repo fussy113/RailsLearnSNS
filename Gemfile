@@ -26,10 +26,18 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'turbolinks', '~> 5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
+# デザイン
+gem 'material_design_lite-sass'
+# 画像アップロード
+gem 'carrierwave'
+# AWS S3連携用
+gem 'fog-aws'
+# 画像処理用(例: リサイズ) -> imagemagick@6をインストールする必要
+gem 'rmagick', '~> 2.16.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,6 +55,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   #gem 'spring'
   #gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "foreman"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

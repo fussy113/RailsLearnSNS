@@ -11,6 +11,23 @@ Rails.application.routes.draw do
     post 'users/sign_up/complete' => 'users/registrations#complete'
   end
 
-  root to: 'home#index'
+  scope '/rooms' do
+    get '/' => 'rooms#index'
+    get '/new' => 'rooms#new'
+    delete '/:id' => 'rooms#destroy'
+    patch '/:id' => 'rooms#update'
+    post '/' => 'rooms#create'
+    get '/:id/edit' => 'rooms#edit'
+    get '/:id/confirm' => 'rooms#confirm'
+    post '/:id/confirm' => 'rooms#checkin'
+    get '/:id' => 'rooms#show'
+    scope '/textlogs' do
+      post '/' => 'textlogs#create'
+    end
+  end
+
+
+
+  root to: 'rooms#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
